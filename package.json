@@ -7,7 +7,7 @@
     "start": "node src/app.js",
     "dev": "nodemon src/app.js",
     "test": "jest --runInBand",
-    "lint": "eslint . --ext .js",
+    "lint": "eslint .",
     "format": "prettier --write ."
   },
   "author": "EL AMRANI Amine",
@@ -19,12 +19,16 @@
     "yamljs": "^0.3.0"
   },
   "devDependencies": {
-    "eslint": "^8.35.0",
+    "@eslint/js": "^9.39.1",
+    "eslint": "^8.57.1",
     "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-config-prettier": "^10.1.8",
     "eslint-plugin-import": "^2.27.5",
+    "eslint-plugin-prettier": "^5.5.4",
+    "globals": "^16.5.0",
     "jest": "^29.5.0",
     "nodemon": "^3.1.10",
-    "prettier": "^2.8.8",
+    "prettier": "^3.6.2",
     "supertest": "^6.3.3"
   }
 }

@@ -83,11 +83,11 @@ describe("Student-Course API integration", () => {
   });
 
   test("DELETE /students/:id success, blocked if enrolled, 404 if not found", async () => {
-    let res = await request(app).delete("/students/2"); // étudiant non inscrit
+    let res = await request(app).delete("/students/2");
     expect(res.statusCode).toBe(204);
-    res = await request(app).delete("/students/1"); // étudiant inscrit
+    res = await request(app).delete("/students/1"); 
     expect(res.statusCode).toBe(400);
-    res = await request(app).delete("/students/999"); // inexistant
+    res = await request(app).delete("/students/999"); 
     expect(res.statusCode).toBe(404);
   });
 
@@ -98,7 +98,7 @@ describe("Student-Course API integration", () => {
     expect(res.statusCode).toBe(200);
     res = await request(app)
       .put("/students/2")
-      .send({ email: "alice@example.com" }); // doublon
+      .send({ email: "alice@example.com" });
     expect(res.statusCode).toBe(400);
     res = await request(app).put("/students/999").send({ name: "NonExistent" });
     expect(res.statusCode).toBe(404);

@@ -128,14 +128,13 @@ exports.deleteCourse = (req, res) => {
  *         description: OK
  *         content:
  *           application/json:
- *  schema:
+ *             schema:
  *               type: object
  *       404:
  *         description: Non trouvé
  *       400:
  *         description: Erreur de validation
  */
-
 exports.updateCourse = (req, res) => {
   const course = storage.get("courses", req.params.id);
   if (!course) return res.status(404).json({ error: "Course not found" });

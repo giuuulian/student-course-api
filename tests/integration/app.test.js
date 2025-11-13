@@ -55,10 +55,12 @@ describe("Student-Course API integration", () => {
   });
 
   test("DELETE /courses/:id success, blocked if students enrolled, 404 if not found", async () => {
+    await request(app).post("/courses/1/students/1");
+    
     let res = await request(app).delete("/courses/2");
     expect(res.statusCode).toBe(204);
     res = await request(app).delete("/courses/1");
-    expect(res.statusCode).toBe(400);
+    expect(res.statusCode).toBe(400); 
     res = await request(app).delete("/courses/999");
     expect(res.statusCode).toBe(404);
   });
@@ -83,11 +85,14 @@ describe("Student-Course API integration", () => {
   });
 
   test("DELETE /students/:id success, blocked if enrolled, 404 if not found", async () => {
+
+    await request(app).post("/courses/1/students/1");
+    
     let res = await request(app).delete("/students/2");
     expect(res.statusCode).toBe(204);
-    res = await request(app).delete("/students/1"); 
-    expect(res.statusCode).toBe(400);
-    res = await request(app).delete("/students/999"); 
+    res = await request(app).delete("/students/1");
+    expect(res.statusCode).toBe(400); 
+    res = await request(app).delete("/students/999");
     expect(res.statusCode).toBe(404);
   });
 

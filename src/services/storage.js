@@ -106,17 +106,17 @@ function reset() {
   // utile pour les tests : réinitialiser l'état
   data.students = [];
   data.courses = [];
+  data.enrollments = [];
   studentId = 1;
   courseId = 1;
 }
 
 function seed() {
-  // Réinitialiser les IDs et les données
-  studentId = 1;
-  courseId = 1;
-  data.students = [];
-  data.courses = [];
-  data.enrollments = [];
+  // Réinitialiser seulement si les données sont vides
+  if (data.students.length === 0 && data.courses.length === 0) {
+    studentId = 1;
+    courseId = 1;
+  }
   
   // Ajoute quelques étudiants
   create("students", { name: "Alice", email: "alice@example.com" });

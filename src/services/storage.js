@@ -51,7 +51,7 @@ function remove(collection, id) {
 }
 
 function enroll(studentId, courseId) {
-  // Vérifie que le cours existe
+  // Vérifie que le cours existes
   const course = get("courses", courseId);
   if (!course) return { error: "Course not found" };
 
@@ -117,7 +117,7 @@ function seed() {
     studentId = 1;
     courseId = 1;
   }
-  
+
   // Ajoute quelques étudiants
   create("students", { name: "Alice", email: "alice@example.com" });
   create("students", { name: "Bob", email: "bob@example.com" });

@@ -4,8 +4,7 @@
 npm install
 npm run dev
 ```
-
-Le serveur démarre sur le port `3000` 
+Le serveur démarre sur le port `3000`
 
 ## Scripts disponibles
 
@@ -17,25 +16,25 @@ Le serveur démarre sur le port `3000`
 
 ```
 src/
-├── app.js   
-├── controllers/        
+├── app.js
+├── controllers/
 │   ├── studentsController.js
 │   └── coursesController.js
-├── routes/             
+├── routes/
 │   ├── students.js
 │   └── courses.js
-└── services/   
-    └── storage.js 
+└── services/
+    └── storage.js
 
 tests/
-├── unit/    
+├── unit/
 |   |── storage.test.js
 └── integration/
     |── app.test.js
 
 .github/
 └── workflows/
-    └── ci.yml 
+    └── ci.yml
 ```
 
 ## API Endpoints
@@ -60,11 +59,6 @@ tests/
 
 Accéder à `/api-docs` pour explorer l'API interactive.
 
-
 ## CI/CD
 
-Les tests et linting sont automatiquement exécutés à chaque **push** et **pull request**  via GitHub Actions.
-
-
-
-
+Les tests et linting sont automatiquement exécutés à chaque **push** et **pull request** via GitHub Actions.

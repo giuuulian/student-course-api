@@ -7,7 +7,7 @@ npm run dev
 
 Le serveur démarre sur le port `3000`
 
-## Scripts disponibles
+## Scripts disponible
 
 | `npm test` | Lance les tests Jest |
 | `npm run lint` | Vérifie la qualité du code avec ESLint |

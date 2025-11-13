@@ -51,7 +51,7 @@ function remove(collection, id) {
 }
 
 function enroll(studentId, courseId) {
-  // Vérifie que le cours existe
+  // Vérifie que le cours existes
   const course = get("courses", courseId);
   if (!course) return { error: "Course not found" };
 

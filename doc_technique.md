@@ -4,10 +4,9 @@
 npm install
 npm run dev
 ```
-
 Le serveur démarre sur le port `3000`
 
-## Scripts disponible
+## Scripts disponibles
 
 | `npm test` | Lance les tests Jest |
 | `npm run lint` | Vérifie la qualité du code avec ESLint |

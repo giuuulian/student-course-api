@@ -17,16 +17,16 @@ const swaggerOptions = {
     info: {
       title: "StudentCourseAPI",
       version: "1.0.0",
-      description: "API pour gérer les étudiants et les cours"
+      description: "API pour gérer les étudiants et les cours",
     },
     servers: [
       {
         url: "http://localhost:3000",
-        description: "Serveur local"
-      }
-    ]
+        description: "Serveur local",
+      },
+    ],
   },
-  apis: ["./src/controllers/*.js"]
+  apis: ["./src/controllers/*.js"],
 };
 
 const swaggerSpec = swaggerJSDoc(swaggerOptions);

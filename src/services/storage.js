@@ -117,7 +117,7 @@ function seed() {
     studentId = 1;
     courseId = 1;
   }
-  
+
   // Ajoute quelques étudiants
   create("students", { name: "Alice", email: "alice@example.com" });
   create("students", { name: "Bob", email: "bob@example.com" });

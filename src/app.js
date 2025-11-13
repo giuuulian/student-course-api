@@ -1,26 +1,36 @@
 const express = require("express");
 const swaggerUi = require("swagger-ui-express");
+const swaggerJSDoc = require("swagger-jsdoc");
 
 const x = require("./routes/students");
 const y = require("./routes/courses");
+const storage = require("./services/storage");
 
 const app = express();
 app.use(express.json());
 
-const swaggerJSDoc = require("swagger-jsdoc");
-const swaggerDefinition = require("../swaggerDef");
+storage.seed();
 
-const options = {
-  swaggerDefinition,
-  apis: ["./src/controllers/*.js"],
+const swaggerOptions = {
+  definition: {
+    openapi: "3.0.0",
+    info: {
+      title: "StudentCourseAPI",
+      version: "1.0.0",
+      description: "API pour gérer les étudiants et les cours"
+    },
+    servers: [
+      {
+        url: "http://localhost:3000",
+        description: "Serveur local"
+      }
+    ]
+  },
+  apis: ["./src/controllers/*.js"]
 };
 
-const swaggerSpec = swaggerJSDoc(options);
+const swaggerSpec = swaggerJSDoc(swaggerOptions);
 app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerSpec));
-
-const storage = require("./services/storage");
-
-storage.seed();
 
 app.use("/students", x);
 app.use("/courses", y);

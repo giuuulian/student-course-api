@@ -5,9 +5,43 @@ const storage = require("../services/storage");
  * /courses:
  *   get:
  *     summary: Liste des cours
+ *     parameters:
+ *       - name: title
+ *         in: query
+ *         schema:
+ *           type: string
+ *         description: Filtrer par titre
+ *       - name: teacher
+ *         in: query
+ *         schema:
+ *           type: string
+ *         description: Filtrer par enseignant
+ *       - name: page
+ *         in: query
+ *         schema:
+ *           type: integer
+ *           default: 1
+ *         description: Numéro de page
+ *       - name: limit
+ *         in: query
+ *         schema:
+ *           type: integer
+ *           default: 10
+ *         description: Nombre de résultats par page
  *     responses:
  *       200:
  *         description: OK
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 courses:
+ *                   type: array
+ *                   items:
+ *                     type: object
+ *                 total:
+ *                   type: integer
  */
 exports.listCourses = (req, res) => {
   let courses = storage.list("courses");
@@ -33,6 +67,15 @@ exports.listCourses = (req, res) => {
  *     responses:
  *       200:
  *         description: OK
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 course:
+ *                   type: object
+ *                 students:
+ *                   type: array
  *       404:
  *         description: Non trouvé
  */
@@ -65,6 +108,10 @@ exports.getCourse = (req, res) => {
  *     responses:
  *       201:
  *         description: Créé
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
  *       400:
  *         description: Paramètres invalides
  */

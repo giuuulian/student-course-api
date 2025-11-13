@@ -111,6 +111,13 @@ function reset() {
 }
 
 function seed() {
+  // Réinitialiser les IDs et les données
+  studentId = 1;
+  courseId = 1;
+  data.students = [];
+  data.courses = [];
+  data.enrollments = [];
+  
   // Ajoute quelques étudiants
   create("students", { name: "Alice", email: "alice@example.com" });
   create("students", { name: "Bob", email: "bob@example.com" });
